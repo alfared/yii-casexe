@@ -33,7 +33,31 @@ class GameController extends Controller
 	}
 
 	public function actionPlay() {
-		
+		if (!Yii::$app->user->isGuest) {
+			if (Yii::$app->request->isAjax) {
+				print $this->choosePrize();
+				die();
+			}
+
+			$this->view->title = 'Play Game!';
+			return $this->render('play');
+		}
+		else {
+			return $this->goHome();
+		}
+	}
+
+	public function actionBonus($id, $amount = 0) {
+		$prize = Prize::find()->where(['id' => $id])->one();
+		Prize::acceptPrize($prize);
+	}
+
+	public function actionConvert($id) {
+		$this->actionBonus($id, $this->convertMoneyToBonus($id));
+	}
+
+	public function actionMoney($id) {
+
 	}
 
 

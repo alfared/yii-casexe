@@ -90,6 +90,9 @@ class SiteController extends Controller
 //        }
 //
 //        $model->password = '';
+	    if ($model->load(Yii::$app->request->post()) && $model->login()) {
+	    	return $this->redirect('/game/play');
+	    }
         return $this->render('login', [
             'model' => $model,
         ]);
