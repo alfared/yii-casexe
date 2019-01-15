@@ -27,6 +27,20 @@ class Card extends ActiveRecord
 		];
 	}
 
+	public static function cardStatus($id = null) {
+		$types = [
+			0 => 'New',
+			1 => 'Paid'
+ 		];
+
+		if ($id !== null) {
+			return isset($types[$id]) ? $types[$id] : 'Undefined';
+		}
+		else {
+			return $types;
+		}
+	}
+
 	public static function cardType($id = null) {
 
 		$types = [
