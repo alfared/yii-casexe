@@ -135,7 +135,7 @@ class SiteController extends Controller
     }
 
     /**
-     * Подключение пользователя
+     * Комманда для подключение пользователя
      */
     public function actionSignup()
     {
@@ -149,4 +149,22 @@ class SiteController extends Controller
 		}
     	return $this->render('signup',['model' => $model]);
     }
+
+	/**
+	 * Команда для создание запроса на востановление пароля
+	 */
+	public function actionRequestPasswordReset()
+	{
+		$model = new PasswordResetRequestForm();
+		if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+			return $this->refresh();
+		} else {
+			return $this->render('contact', [
+				'model' => $model,
+			]);
+		}
+
+	}
+
+
 }
