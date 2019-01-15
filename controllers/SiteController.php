@@ -159,9 +159,9 @@ class SiteController extends Controller
 	{
 		$model = new PasswordResetRequestForm();
 		if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-			return $this->refresh();
+			return $this->goHome();
 		} else {
-			return $this->render('contact', [
+			return $this->render('requestPassword', [
 				'model' => $model,
 			]);
 		}
