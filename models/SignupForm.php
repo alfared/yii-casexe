@@ -1,8 +1,8 @@
 <?php
-namespace frontend\models;
+namespace app\models;
 
 use yii\base\Model;
-use common\models\User;
+use app\models\User;
 
 /**
  * Signup form
