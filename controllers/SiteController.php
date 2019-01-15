@@ -11,6 +11,8 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\SignupForm;
+use app\models\PasswordResetRequestForm;
+use app\models\ResetPasswordForm;
 
 class SiteController extends Controller
 {
@@ -163,6 +165,14 @@ class SiteController extends Controller
 				'model' => $model,
 			]);
 		}
+
+	}
+
+	/**
+	 * Восстановление пароля
+	 */
+	public function actionResetPassword($token)
+	{
 
 	}
 
