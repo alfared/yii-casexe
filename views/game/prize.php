@@ -23,7 +23,7 @@
 				</a>
 				<a class="btn btn-secondary" href="/game/play">Отказываться</a>
 			<?php elseif ($prize->type == 3): ?>
-
+				<a class="btn btn-success prize-action" href="/address/show?id=<?= $prize->id ?>">Взять приз</a> <a class="btn btn-secondary" href="/game/play">Отказываться</a>
 			<?php else: ?>
 				<div class="won-prize">
 					<p>Извините, но все призы разыгрываются. Попробуйте позже.</p>
