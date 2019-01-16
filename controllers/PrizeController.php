@@ -5,7 +5,9 @@ namespace app\controllers;
 
 use Yii;
 use app\models\Prize;
+use app\models\Address;
 use yii\web\Controller;
+
 
 class PrizeController extends Controller
 {
@@ -43,4 +45,24 @@ class PrizeController extends Controller
 		return $this->render('manage', compact('model'));
 	}
 
+	public function actionAdd($id) {
+
+		$model = new Address();
+		$prize = Prize::find()->where(['id' => $id])->one();
+		if ($model->load(Yii::$app->request->post())) {
+			$model->user_id = Yii::$app->user->id;
+			$model->prize_id = $prize->id;
+			$model->status = 0;
+
+
+			if ($model->save()) {
+				Prize::acceptPrize($prize);
+				return $this->redirect('/game/play/');
+			}
+		}
+
+		$this->view->title = 'Введите ваш адрес';
+		return $this->render('addressForm', compact('model'));
+
+	}
 }

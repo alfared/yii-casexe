@@ -19,6 +19,8 @@ class PrizeController extends Controller
         return 0;
     }
 
+
+    // Консольная комманда оплаты приза
     public function actionPay($count) {
         $payments = Card::find()->where(['=', 'status', '0'])->orderBy(['id' => SORT_ASC])->limit($count)->all();
         if (sizeof($payments)) {
