@@ -11,7 +11,6 @@ class PrizeController extends Controller
 {
     public function actionIndex() {
         if (Yii::$app->user->isGuest) {
-            Yii::$app->session->setFlash('error', 'Access denied.');
             return $this->redirect('/site/login');
         }
 
@@ -19,6 +18,29 @@ class PrizeController extends Controller
         return $this->render('index', compact('prizes'));
     }
 
-    
+
+	public function actionManage($id = 0) {
+		if (Yii::$app->user->isGuest) {
+			return $this->redirect('/site/login');
+		}
+
+		if ($id) {
+			$model = Prize::find()->where(['id' => $id])->one();
+		}
+		else {
+			$model = new Prize();
+		}
+
+		if ($model->load(Yii::$app->request->post())) {
+			if ($model->save()) {
+				return $this->redirect('/prize/');
+			}
+
+		}
+
+		$this->view->title = $id ? 'Редактировать приз "' .$model->name .'"' : 'Добавить новый приз';
+
+		return $this->render('manage', compact('model'));
+	}
 
 }

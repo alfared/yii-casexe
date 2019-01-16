@@ -41,8 +41,8 @@ AppAsset::register($this);
     } else {
 	    $menuItems[] = ['label' => 'Play Game', 'url' => ['/game/play']];
 	    $menuItems[] = ['label' => 'Manage prizes', 'url' => ['/prize/']];
-	    $menuItems[] = ['label' => 'Payments', 'url' => ['/card/']];
-	    $menuItems[] = ['label' => 'Send requests', 'url' => ['/address/']];
+//	    $menuItems[] = ['label' => 'Payments', 'url' => ['/card/']];
+//	    $menuItems[] = ['label' => 'Send requests', 'url' => ['/address/']];
 
 	    $menuItems[] = '<li>'
 	                   . Html::beginForm(['/site/logout'], 'post')
