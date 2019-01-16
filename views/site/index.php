@@ -2,51 +2,21 @@
 
 /* @var $this yii\web\View */
 
-$this->title = 'My Yii Application';
+$this->title = 'Yii casexe';
 ?>
 <div class="site-index">
 
     <div class="jumbotron">
-        <h1>Congratulations!</h1>
+        <h1>Yii casexe</h1>
 
-        <p class="lead">You have successfully created your Yii-powered application.</p>
+        <p class="lead">Задание: Нужно разработать веб-приложение для розыгрыша призов. После аутентификации пользователь может нажать на кнопку и получить случайный приз. Призы бывают 3х типов: денежный (случайная сумма в интервале), бонусные баллы (случайная сумма в интервале), физический предмет (случайный предмет из списка). Денежный приз может быть перечислен на счет пользователя в банке (HTTP запрос к API банка), баллы зачислены на счет лояльности в приложении, предмет отправлен по почте (вручную работником). Денежный приз может конвертироваться в баллы лояльности с учетом коэфициэнта. От приза можно отказаться. Деньги и предметы ограничены, баллы лояльности нет. Комментарии к реализации: Не нужно реализовывать все, достаточно потратить максимум 2 часа и отобразить прогресс в git репозитории. Нам важно понять как вы думаете. Решений 2: Или -- minimal – 1. Нужно предоставить прототип в PHP 5.6+ без использования фреймворков, но можно использовать любые библиотеки. Где хранить данные - на ваше усмотрение. 2. Нужно добавить консольную команду которая будет отправлять денежные призы на счета пользователей, которые еще не были отправлены пачками по N штук. Или -- advanced – 1. Реализация с помощью фреймворка (можно любой, но лучше Yii или Yii2), использованием БД. 2. Нужно добавить консольную команду которая будет отправлять денежные призы на счета пользователей, которые еще не были отправлены пачками по N штук. 3. Добавить юнит-тест конвертирования денежного приза в баллы лояльности</p>
 
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
+
     </div>
 
     <div class="body-content">
 
         <div class="row">
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
-            </div>
         </div>
 
     </div>
