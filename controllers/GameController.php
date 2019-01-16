@@ -2,12 +2,12 @@
 
 namespace app\controllers;
 
-use Yii;
-use Yii\web\Controller;
+use yii;
+use \yii\web\Controller;
 use app\models\Prize;
 
 
-class GameController extends Controller
+class GameController extends \yii\web\Controller
 {
 	private $moneyToBonusConvertRate = 10;
 
@@ -33,16 +33,18 @@ class GameController extends Controller
 	}
 
 	public function actionPlay() {
-		if (!Yii::$app->user->isGuest) {
-			if (Yii::$app->request->isAjax) {
+		if (!yii::$app->user->isGuest) {
+			if (yii::$app->request->isAjax ) {
 				print $this->choosePrize();
 				die();
 			}
 
-			$this->view->title = 'Play Game!';
+			//echo yii::$app->request->isAjax;
+			$this->view->title = 'Играйте!';
 			return $this->render('play');
 		}
 		else {
+			yii::$app->session->setFlash('error', 'Access denied.');
 			return $this->goHome();
 		}
 	}
