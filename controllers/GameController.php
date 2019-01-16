@@ -13,7 +13,7 @@ class GameController extends \yii\web\Controller
 
 	// Cлучайный розыграш призов
 	private function choosePrize() {
-		$this->layout = 'empty';
+		//$this->layout = 'empty';
 		$won_prize = null;
 		$prizes = Prize::find()->where(['>','cnt',0])->all();
 		if (sizeof($prizes)) {
@@ -35,8 +35,7 @@ class GameController extends \yii\web\Controller
 	public function actionPlay() {
 		if (!yii::$app->user->isGuest) {
 			if (yii::$app->request->isAjax ) {
-				print $this->choosePrize();
-				die();
+				echo 'true';
 			}
 
 			//echo yii::$app->request->isAjax;
@@ -44,9 +43,22 @@ class GameController extends \yii\web\Controller
 			return $this->render('play');
 		}
 		else {
-			yii::$app->session->setFlash('error', 'Access denied.');
 			return $this->goHome();
 		}
+	}
+
+	public function actionPrize()
+	{
+		//$this->choosePrize();
+
+		$won_prize = null;
+		$prizes = Prize::find()->where(['>','cnt',0])->all();
+		if (sizeof($prizes)) {
+			$prize_num = rand(0,sizeof($prizes) - 1);
+			$won_prize = $prizes[$prize_num];
+		}
+
+		return $this->render('prize', ['prize' => $won_prize]);
 	}
 
 	public function actionBonus($id, $amount = 0) {

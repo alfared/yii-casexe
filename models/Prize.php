@@ -8,10 +8,10 @@ class Prize extends ActiveRecord
 {
 	public function attributeLabels()
 	{
-		return ['name' => 'Prize name',
-		        'type' => 'Prize type',
-		        'amount' => 'Money or Bonus amount',
-		        'cnt' => 'Prizes available'
+		return ['name' => 'Имя приза',
+		        'type' => 'Тип приза',
+		        'amount' => 'Доступность призов',
+		        'cnt' => 'Сколько доступно призов'
 		];
 	}
 

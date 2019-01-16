@@ -5,3 +5,5 @@ $('body').on('click', '.prize-action', function (e) {
         $('.prize-wrapper').html(data);
     })
 });
+
+

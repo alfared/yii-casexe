@@ -1,13 +1,13 @@
 <?php
 
 use app\models\Prize;
-
+use yii\bootstrap\Html;
 ?>
 
 <h1>Список призов</h1>
 
 <?php if (sizeof($prizes)): ?>
-	<p><a href="/prize/manage/">Добавить новый приз</a></p>
+	<p><?php echo Html::a('добавить приз', ['/prize/manage'], ['class'=>'btn btn-primary']) ; ?></p>
     <table class="table table-bordered table-hover">
         <thead>
         <tr><th>Имя приза</th>
