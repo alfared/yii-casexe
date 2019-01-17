@@ -21,6 +21,7 @@ class PrizeController extends Controller
     }
 
 
+	// Действие при управлении призами
 	public function actionManage($id = 0) {
 		if (Yii::$app->user->isGuest) {
 			return $this->redirect('/site/login');
@@ -44,6 +45,7 @@ class PrizeController extends Controller
 		return $this->render('manage', compact('model'));
 	}
 
+	// Действие при добавлении приза
 	public function actionAdd() {
 
     	$id = rand(1,3);

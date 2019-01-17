@@ -18,7 +18,7 @@ class CardController extends Controller
         return $this->render('payments', ['payments' => $payments]);
     }
 
-    //
+    // Действие при выводе приза с деньгами
 	public function actionShow($id) {
 
 		$model = new Card();
