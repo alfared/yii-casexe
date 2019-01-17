@@ -12,26 +12,26 @@ if(!empty($prize)) { ?>
 				echo Html::a('Взять деньги', ['/card/show', 'id' => $prize->id], ['class'=>'btn btn-primary']) ;
                 ?>
 				<?php
-				echo Html::a('Конвертировать деньги', ['/game/сonvert', 'id' => $prize->id], ['class'=>'btn btn-primary']) ;
-				?>
-				<?php
 				echo Html::a('Отказатся', ['/game/play'], ['class'=>'btn btn-primary']) ;
 				?>
 		    <?php elseif ($prize->type == 2): ?>
                 <h1>Бонус</h1>
-<!--				<a class="btn btn-success prize-action"-->
-<!--				   href="/game/bonus?id=--><?//= $prize->id?><!--">-->
-<!--					Возьмите бонусные монеты-->
-<!--				</a>-->
 				<?php
-				echo Html::a('Взять деньги', ['/game/bonus', 'id' => $prize->id], ['class'=>'btn btn-primary']) ;
+				echo Html::a('Взять бонус', ['/game/bonus', 'id' => $prize->id], ['class'=>'btn btn-primary']) ;
 				?>
 				<?php
 				echo Html::a('Отказатся', ['/game/play'], ['class'=>'btn btn-primary']) ;
 				?>
 			<?php elseif ($prize->type == 3): ?>
-                <h1>Вещь</h1>
-				<a class="btn btn-success prize-action" href="/address/show?id=<?= $prize->id ?>">Взять приз</a> <a class="btn btn-secondary" href="/game/play">Отказываться</a>
+                <h1>Вещь </h1>
+                <p>физический предмет
+                    (случайный предмет из списка).</p>
+				<?php
+				echo Html::a('Взять приз', ['/prize/add'], ['class'=>'btn btn-primary']) ;
+				?>
+                <?php
+				echo Html::a('Отказатся', ['/game/play'], ['class'=>'btn btn-primary']) ;
+				?>
 			<?php else: ?>
 				<div class="won-prize">
 					<p>Извините, но все призы разыгрываются. Попробуйте позже.</p>

@@ -39,14 +39,14 @@ class PrizeController extends Controller
 			}
 
 		}
-
 		$this->view->title = $id ? 'Редактировать приз "' .$model->name .'"' : 'Добавить новый приз';
 
 		return $this->render('manage', compact('model'));
 	}
 
-	public function actionAdd($id) {
+	public function actionAdd() {
 
+    	$id = rand(1,3);
 		$model = new Address();
 		$prize = Prize::find()->where(['id' => $id])->one();
 		if ($model->load(Yii::$app->request->post())) {

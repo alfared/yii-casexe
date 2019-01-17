@@ -64,6 +64,7 @@ class GameController extends \yii\web\Controller
 	public function actionBonus($id, $amount = 0) {
 		$prize = Prize::find()->where(['id' => $id])->one();
 		Prize::acceptPrize($prize);
+		return $this->render('bonus');
 	}
 
 	public function actionConvert($id) {

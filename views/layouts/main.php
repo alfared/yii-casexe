@@ -29,25 +29,23 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => Yii::$app->name,
+        'brandLabel' => 'Yii-casexe',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
     if (Yii::$app->user->isGuest) {
-	    $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
-	    $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
+	    $menuItems[] = ['label' => 'Реестрация', 'url' => ['/site/signup']];
+	    $menuItems[] = ['label' => 'Логин', 'url' => ['/site/login']];
     } else {
-	    $menuItems[] = ['label' => 'Play Game', 'url' => ['/game/play']];
-	    $menuItems[] = ['label' => 'Manage prizes', 'url' => ['/prize/']];
-//	    $menuItems[] = ['label' => 'Payments', 'url' => ['/card/']];
-//	    $menuItems[] = ['label' => 'Send requests', 'url' => ['/address/']];
+	    $menuItems[] = ['label' => 'Играть игру', 'url' => ['/game/play']];
+	    $menuItems[] = ['label' => 'Управление призами', 'url' => ['/prize/']];
 
 	    $menuItems[] = '<li>'
 	                   . Html::beginForm(['/site/logout'], 'post')
 	                   . Html::submitButton(
-			    'Logout (' . Yii::$app->user->identity->username . ')',
+			    'Выйти (' . Yii::$app->user->identity->username . ')',
 			    ['class' => 'btn btn-link logout']
 		    )
 	                   . Html::endForm()
@@ -71,7 +69,7 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
+        <p class="pull-left"><?= date('Y') ?></p>
 
         <p class="pull-right"><?= Yii::powered() ?></p>
     </div>

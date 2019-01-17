@@ -12,12 +12,12 @@ class Address extends ActiveRecord
 
 	public function attributeLabels() {
 		return [
-			'reciever' => 'Reciever Name',
+			'reciever' => 'Имя получателя',
 			'zip' => 'Zip',
-			'country' => 'Country',
-			'state' => 'State or Province',
-			'city' => 'City',
-			'address' => 'Address'
+			'country' => 'Страна',
+			'state' => 'Область',
+			'city' => 'Город',
+			'address' => 'Адрес'
 		];
 	}
 
@@ -47,7 +47,7 @@ class Address extends ActiveRecord
 
 	public function myRule($attribute, $params) {
 		if (!preg_match('/[0-9]+/', $this->$attribute)) {
-			$this->addError($attribute, 'Zip must contain only digits');
+			$this->addError($attribute, 'Zip должен содержать только числа');
 		}
 	}
 }

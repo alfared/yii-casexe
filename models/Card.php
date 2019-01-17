@@ -14,8 +14,8 @@ class Card extends ActiveRecord
 	public function attributeLabels() {
 
 		return [
-			'cardType' => 'Card Type',
-			'cardNumber' => 'Card Number'
+			'cardType' => 'Тип картки',
+			'cardNumber' => 'Номер картки'
 		];
 	}
 
@@ -58,8 +58,8 @@ class Card extends ActiveRecord
 	}
 
 	public function myRule($attribute, $params) {
-		if (!preg_match('/^[0-9]{16}$/', $this->$attribute)) {
-			$this->addError($attribute, 'Card number must be 16 digits');
+		if (!preg_match('/^[0-9]{5}$/', $this->$attribute)) {
+			$this->addError($attribute, 'Картка должна иметь 5 цифр');
 		}
 	}
 
