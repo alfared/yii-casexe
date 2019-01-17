@@ -4,12 +4,16 @@ namespace app\models;
 
 use yii\db\ActiveRecord;
 
+// Создание модели Картки для перечисления денег
 class Card extends ActiveRecord
 {
 
+	// обновления статуса картки по id
 	public static function paymentDone($id) {
 		Card::updateAll(['status' => 1], 'id ='. $id);
 	}
+
+
 
 	public function attributeLabels() {
 
@@ -27,6 +31,8 @@ class Card extends ActiveRecord
 		];
 	}
 
+
+	//Создание статуса для карток по ид
 	public static function cardStatus($id = null) {
 		$types = [
 			0 => 'New',

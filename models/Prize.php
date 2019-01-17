@@ -39,13 +39,14 @@ class Prize extends ActiveRecord
 		}
 	}
 
+	// Вывод имени приза
 	public static function prizeName($id) {
 		$prize = Prize::find()->where(['=', 'id', $id])->one();
 
 		return $prize->name;
 	}
 
-	// reduce number of prizes
+	// Уменьшаем количетсво бонуса для приза
 	public static function acceptPrize($prize) {
 		Prize::updateAll(['cnt' => $prize->cnt -1], 'id =' .$prize->id);
 	}

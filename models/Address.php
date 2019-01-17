@@ -4,6 +4,7 @@ namespace app\models;
 
 use yii\db\ActiveRecord;
 
+// Модель для сохранение адреса после выбора физического предмета
 class Address extends ActiveRecord
 {
 	public static function prizeSent($id) {

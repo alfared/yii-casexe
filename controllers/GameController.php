@@ -32,6 +32,7 @@ class GameController extends \yii\web\Controller
 		return $amount;
 	}
 
+	// Действие отображения игры случайного приза
 	public function actionPlay() {
 		if (!yii::$app->user->isGuest) {
 			if (yii::$app->request->isAjax ) {
@@ -47,6 +48,7 @@ class GameController extends \yii\web\Controller
 		}
 	}
 
+	// Действие при выборе случайного приза
 	public function actionPrize()
 	{
 		//$this->choosePrize();
@@ -61,6 +63,7 @@ class GameController extends \yii\web\Controller
 		return $this->render('prize', ['prize' => $won_prize]);
 	}
 
+	// Действие при выборе бонуса
 	public function actionBonus($id, $amount = 0) {
 		$prize = Prize::find()->where(['id' => $id])->one();
 		Prize::acceptPrize($prize);

@@ -18,6 +18,7 @@ class CardController extends Controller
         return $this->render('payments', ['payments' => $payments]);
     }
 
+    //
 	public function actionShow($id) {
 
 		$model = new Card();

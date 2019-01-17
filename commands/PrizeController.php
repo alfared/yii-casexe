@@ -22,7 +22,11 @@ class PrizeController extends Controller
 
     // Консольная комманда оплаты приза
     public function actionPay($count) {
+
+    	// Выбираем все записи с модели Карток для которых не завершилась транзакция
+
         $payments = Card::find()->where(['=', 'status', '0'])->orderBy(['id' => SORT_ASC])->limit($count)->all();
+
         if (sizeof($payments)) {
             foreach ($payments as $p) {
                 Card::paymentDone($p->id);
